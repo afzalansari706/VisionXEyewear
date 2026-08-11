@@ -90,6 +90,10 @@ exports.updateOrder = catchAsyncErrors(async (req,res,next)=>{
 
     const order = await Order.findById(req.params.id);
 
+    if(!order){
+        return next(new ErrorHander("Order not found with this id ",404));
+    }
+
     //This is for checking order status
     if(order.orderStatus==="Delivered"){
 
