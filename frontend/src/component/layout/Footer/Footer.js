@@ -7,7 +7,7 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <footer id="footer">
-        <div class="leftFooter">
+        <div className="leftFooter">
             <h4>DOWNLOAD OUR APP</h4>
             <p>Download App for Andriod and IOS mobile phone</p>
             <img src={playStore} alt='playStore'/>
@@ -15,7 +15,7 @@ const Footer = () => {
 
         </div>
 
-        <div class="midFooter">
+        <div className="midFooter">
             <h1>VisionX Eyewear</h1>
             <p>Sometime Eyewear is My Wear</p>
 
@@ -23,7 +23,7 @@ const Footer = () => {
             
         </div>
         
-        <div class="rightFooter">
+        <div className="rightFooter">
             <h4>Follow Us </h4>
             <a href="http://www.youtube.com/@_dissimilar_">YouTube</a>
             <a href="http://www.youtube.com/@_dissimilar_">Instagram</a>
