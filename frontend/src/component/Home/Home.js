@@ -1,19 +1,29 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { CgMouse } from 'react-icons/all';
 import "./Home.css";
 import Product from "./Product.js";
 import MetaData from '../layout/MetaData.js';
+import {getProduct} from "../../actions/productAction";
+import {useSelector,useDispatch} from "react-redux";
 
 
-const product = {
-  name:"LifeTime",
-  images : [{url : "https://da4e1j5r7gw87.cloudfront.net/wp-content/uploads/sites/4926/2024/04/eye-glasses.jpg"}],
-  price:"4000rs",
-  _id:"afzal",
-}
+
+
 
 const Home = () => {
-  return <Fragment>
+  const dispatch = useDispatch(); //basically it was dispatch our request from productAction 
+  const {loading,error,products,productsCount}= useSelector((state)=>state.products);
+
+  useEffect(() => {
+
+    dispatch(getProduct());
+  }, [dispatch]);
+  
+
+  return (
+    <Fragment>
+      {loading ? "loading":
+      (<Fragment>
     <MetaData title="VisionX Eyewear"/>
 
     <div className="banner">
@@ -30,18 +40,14 @@ const Home = () => {
 
     <div className='container' id='container'>
 
-      <Product product={product}/>
-      <Product product={product}/>
-      <Product product={product}/>
-      <Product product={product}/>
-
-      <Product product={product}/>
-      <Product product={product}/>
-      <Product product={product}/>
-      <Product product={product}/>
+      {products && products.map((product) => <Product product={product}/>)}
+      
 
     </div>
-  </Fragment>; 
+  </Fragment>
+   )}
+    </Fragment>
+  );
 };
 
 export default Home

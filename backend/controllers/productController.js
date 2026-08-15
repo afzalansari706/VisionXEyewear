@@ -27,7 +27,7 @@ exports.getAllProducts = catchAsyncErrors(async(req,res)=>{
 
 
 
-    const resultPerPage = 5; // it will show only 5 product on one page
+    const resultPerPage = 8; // it will show only 5 product on one page
     const productCount = await Product.countDocuments();
 
     const apiFeature = new ApiFeatures(Product.find(),req.query)// req.query is our url of postman with key=value i.e queryStr
@@ -38,7 +38,8 @@ exports.getAllProducts = catchAsyncErrors(async(req,res)=>{
 
     res.status(200).json({
         success:true,
-        products
+        products,
+        productCount,
     })
 
 });
