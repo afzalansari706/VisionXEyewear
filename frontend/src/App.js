@@ -8,6 +8,7 @@ import Home from "./component/Home/Home.js";
 
 
 
+
 function App() {
   React.useEffect(() => {
 
@@ -22,6 +23,7 @@ function App() {
     <Router>
       <Header />
       <Route extact path="/" component={Home}/>
+      
 
       <Footer/>
     </Router>
